@@ -121,19 +121,20 @@ $$;
 
 
         perform storage_set_item('sid1', 'bar', '2', true);
+
         return next ok(
-            storage_t(storage_it('sid1')).bar = 2,
+            (storage_t(storage_it('sid1'))).bar = 2,
             'initial value of readonly bar = 2');
 
         s.bar = 3;
         perform set(s);
         return next ok(
-            storage_t(storage_it('sid1')).bar = 2,
+            (storage_t(storage_it('sid1'))).bar = 2,
             'initial bar is still 2');
 
         perform set(s, is_override_readonly_=>true);
         return next ok(
-            storage_t(storage_it('sid1')).bar = 3,
+            (storage_t(storage_it('sid1'))).bar = 3,
             'able to override readeonly');
 
 
