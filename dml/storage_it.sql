@@ -57,7 +57,7 @@ as $$
     select *
     from  storage_item
     where sid = it.sid
-    and it.keys is null or key ~ any(it.keys)
+    and (it.keys is null or key ~ any(it.keys))
 $$;
 
 ------------------------------------------------------------
